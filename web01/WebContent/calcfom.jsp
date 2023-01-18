@@ -7,7 +7,7 @@
 <title>간단한 웹 계산기</title>
 </head>
 <body>
-<form action="calcresult.jsp">
+<form action="calcstep1.jsp">
 	<input type="number" name="first"/>
 	<select name="operator">
 		<option value="plus">+</option>
