@@ -23,14 +23,15 @@
 %>
 	<a href="wishlist.jsp">장바구니 보기</a>
 <%	
-	}
-%>
-	<a href="login.jsp">로그인</a>
-<% 
+	} 
 	if (loginState == true) {
 %>
-	<a href="logout.jsp">로그아웃</a>
+	<a href="logout.jsp">로그아웃</a>
 <%	
+	} else {
+%>	
+	<a href="login.jsp">로그인</a>
+<%		
 	}
 %>
 </body>
