@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원가입 결과</title>
+<title>에러 405</title>
 </head>
 <body>
-<p><%= request.getAttribute("message") %></p>
-<a href="index.html">처음으로</a>
+	<% response.setStatus(405); %>
+	<p>해당 메소드 요청을 수행할 수 없습니다.</p>
 </body>
 </html>

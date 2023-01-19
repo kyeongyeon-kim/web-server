@@ -4,10 +4,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원가입 결과</title>
+<title>에러 400</title>
 </head>
 <body>
-<p><%= request.getAttribute("message") %></p>
-<a href="index.html">처음으로</a>
+	<% response.setStatus(400); %>
+	<p>잘못된 요청입니다.</p>
 </body>
 </html>

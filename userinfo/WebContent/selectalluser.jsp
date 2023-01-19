@@ -1,8 +1,9 @@
+<%@page import="userinfo.UserRepository"%>
 <%@page import="userinfo.User"%>
 <%@page import="java.util.List"%>
-<%@page import="userinfo.UserinfoService"%>
+<%@page import="userinfo.UserService"%>
 <%
-UserinfoService repo = new UserinfoService();
+	UserService repo = new UserService(new UserRepository());
 List<User> list = repo.selectAllUserinfo();
 System.out.println(list);
 request.setAttribute("list", list);
