@@ -1,28 +1,22 @@
 package jdbc;
 
-import java.io.IOException;
 import java.sql.DriverManager;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
-import org. apache. commons. dbcp2. BasicDataSource; 
-import org.apache.commons.dbcp2.BasicDataSourceFactory; 
-import org.apache.commons.dbcp2.ConnectionFactory; 
-import org. apache. commons. dbcp2. DriverManagerConnectionFactory; 
-import org.apache.commons.dbcp2.PoolableConnection; 
-import org. apache. commons. dbcp2. PoolableConnectionFactory; 
-import org.apache.commons.dbcp2.PoolingDriver; 
-import org.apache.commons.pool2.ObjectPool; 
-import org.apache.commons.pool2.impl.GenericObjectPool; 
-import org . apache. commons. pool2. impl. GenericObjectPoolConfig ; 
+import org.apache.commons.dbcp2.ConnectionFactory;
+import org.apache.commons.dbcp2.DriverManagerConnectionFactory;
+import org.apache.commons.dbcp2.PoolableConnection;
+import org.apache.commons.dbcp2.PoolableConnectionFactory;
+import org.apache.commons.dbcp2.PoolingDriver;
+import org.apache.commons.pool2.impl.GenericObjectPool;
+import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
+
 
 
 public class DBCPInit extends HttpServlet {
 
-	@Override
 	public void init() throws ServletException {
 		loadJDBCDriver();
 		initConnectionPool();

@@ -15,7 +15,7 @@
 	MessageListView viewData =
 			messageListService.getMessageList(pageNumber);
 %>
-<c:set var="viewData" value="<%= viewData %>"/>;
+<c:set var="viewData" value="<%= viewData %>"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -27,15 +27,15 @@
 <form action="writeMessage.jsp" method="post">
 이름 : <input type="text" name="guestName"> <br>
 암호 : <input type="password" name="password"> <br>
-메시지 : <textarea name="message" cols="30" row="3"></textarea><br>
+메시지 : <textarea name="message" cols="30" rows="3"></textarea><br>
 <input type="submit" value="메시지 남기기" />
 </form>
 <hr>
-<c:if test=" ${ viewData.isEmpty() }">
+<c:if test="${ viewData.isEmpty() }">
 등록된 메시지가 없습니다.
 </c:if>
 
-<c:if test=" ${ !viewData.isEmpty() }">
+<c:if test="${ !viewData.isEmpty() }">
 <table border="1">
 	<c:forEach var="message" items="${ viewData.messageList }">
 	<tr>
