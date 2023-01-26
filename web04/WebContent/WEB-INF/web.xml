@@ -9,11 +9,41 @@
     
     <!-- 서블릿의 이름을 설정해주는 공간 -->
     <servlet>
+    	<servlet-name>ListServlet</servlet-name>
+    	<servlet-class>web04.ListServlet</servlet-class>
+    </servlet>
+    
+    <servlet>
     	<servlet-name>HelloServlet</servlet-name>
     	<servlet-class>web04.HelloServlet</servlet-class>
     </servlet>
     
+    <servlet>
+    	<servlet-name>ReqTestServlet</servlet-name>
+    	<servlet-class>web04.ReqForwardTestServlet</servlet-class>
+    </servlet>
+    
+     <servlet>
+    	<servlet-name>ReqTest2Servlet</servlet-name>
+    	<servlet-class>web04.ReqForwardTest2Servlet</servlet-class>
+    </servlet>
+    
     <!-- url 매칭을 통해 요청된 url의 서블릿의 클래스 이름을 찾아 실행흐름을 서블릿태그 안으로 돌아가게 함 -->
+     <servlet-mapping>
+		<servlet-name>ListServlet</servlet-name>
+		<url-pattern>/list</url-pattern>    
+    </servlet-mapping>
+    
+    <servlet-mapping>
+		<servlet-name>ReqTest2Servlet</servlet-name>
+		<url-pattern>/reqtest2</url-pattern>    
+    </servlet-mapping>
+    
+  	<servlet-mapping>
+		<servlet-name>ReqTestServlet</servlet-name>
+		<url-pattern>/reqtest</url-pattern>    
+    </servlet-mapping>
+    
     <servlet-mapping>
     	<servlet-name>HelloServlet</servlet-name>
     	<url-pattern>/hello</url-pattern>

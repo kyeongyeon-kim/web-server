@@ -1,15 +1,16 @@
-<%@page import="guestbook.service.InvalidPasswordException"%>
-<%@page import="guestbook.service.DeleteMessageService"%>
+<%@ page import="guestbook.service.InvalidPasswordException"%>
+<%@ page import="guestbook.service.DeleteMessageService"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
 	int messageId = Integer.parseInt(request.getParameter("messageId"));
 	String password = request.getParameter("password");
+	String memberId	= (String) session.getAttribute("memberid");
+	System.out.println(memberId);
 	boolean invalidPassword = false;
-	
 	try {
 		DeleteMessageService deleteService = DeleteMessageService.getInstance();
-		deleteService.deleteMessage(messageId, password);
+		deleteService.deleteMessage(messageId,memberId, password);
 	} catch (InvalidPasswordException ex) {
 		invalidPassword = true;
 	}

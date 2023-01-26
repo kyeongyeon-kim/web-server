@@ -9,6 +9,7 @@
 <body>
 
 <form action="deleteMessage.jsp" method="post">
+<!-- param은 Parameter의 축약어 == request.getParameter("messageId")와 같은 말 -->
 <input type="hidden" name="messageId" value="${ param.messageId }">
 메시지를 삭제하시려면 암호를 입력하세요.: <br>
 암호 : <input type="password" name="password"> <br>

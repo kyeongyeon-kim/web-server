@@ -22,12 +22,12 @@ public class MessageDao {
 	
 	public int insert(Connection conn, Message message) throws SQLException {
 		PreparedStatement pstmt = null;
+		System.out.println(message);
 		try {
 			pstmt = conn.prepareStatement("INSERT INTO guestbook_message "
-					+ "(guest_name, password, message) VALUES (?, ?, ?)");
-			pstmt.setString(1, message.getGuestName());
-			pstmt.setString(2, message.getPassword());
-			pstmt.setString(3, message.getMessage());
+					+ "(message, memberid) VALUES (?, ?)");
+			pstmt.setString(1, message.getMessage());
+			pstmt.setString(2, message.getMemberid());
 			return pstmt.executeUpdate();
 		} finally {
 			JdbcUtil.close(pstmt);
@@ -58,9 +58,8 @@ public class MessageDao {
 	private Message makeMessageFromResultSet(ResultSet rs) throws SQLException {
 		Message message = new Message();
 		message.setId(rs.getInt("message_id"));
-		message.setGuestName(rs.getString("guest_name"));
-		message.setPassword(rs.getString("password"));
 		message.setMessage(rs.getString("message"));
+		message.setMemberid(rs.getString("memberid"));
 		return message;
 	}
 	

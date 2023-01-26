@@ -1,6 +1,8 @@
 package guestbook.service;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import guestbook.dao.MessageDao;
@@ -9,17 +11,18 @@ import jdbcutil.ConnectionProvider;
 import jdbcutil.JdbcUtil;
 
 public class DeleteMessageService {
-	
+	// 외부에서는 생성할 수 없는 객체
+	// 정적인 변수로서 미리 만들어진 객체가 생성되어있음
+	// 싱글턴 패턴
 	private static DeleteMessageService instance = new DeleteMessageService();
 	
 	public static DeleteMessageService getInstance() {
 		return instance;
 	}
 	
-	private DeleteMessageService() {
-	}
+	private DeleteMessageService() {}
 	
-	public void deleteMessage(int messageId, String password) {
+	public void deleteMessage(int messageId, String memberId, String password) {
 		Connection conn = null;
 		try {
 			conn = ConnectionProvider.getConnection();
@@ -30,7 +33,7 @@ public class DeleteMessageService {
 			if(message == null) {
 				throw new MessageNotFoundException("메시지 없음");
 			}
-			if (!message.matchPassword(password)) {
+			if (!matchPassword(conn, memberId, password)) {
 				throw new InvalidPasswordException("bad password");
 			}
 			messageDao.delete(conn, messageId);
@@ -45,5 +48,27 @@ public class DeleteMessageService {
 			JdbcUtil.close(conn);
 		}
 		
+	}
+	
+	private boolean matchPassword(Connection conn, String memberId, String password) throws SQLException {
+		PreparedStatement pstmt = null;
+		String pwd = null;
+		try {
+			pstmt = conn.prepareStatement(
+					"SELECT `password` FROM `member` WHERE memberid = ?");
+			pstmt.setString(1, memberId);
+			try (ResultSet rs = pstmt.executeQuery()) {
+				if(rs.next()) {
+					pwd = rs.getString(1);
+				}
+			}
+			if (pwd.equals(password)) {
+				return true;
+			} else {
+				return false;
+			}
+		} finally {
+			JdbcUtil.close(pstmt);
+		}
 	}
 }
