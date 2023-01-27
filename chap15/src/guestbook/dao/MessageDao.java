@@ -22,7 +22,6 @@ public class MessageDao {
 	
 	public int insert(Connection conn, Message message) throws SQLException {
 		PreparedStatement pstmt = null;
-		System.out.println(message);
 		try {
 			pstmt = conn.prepareStatement("INSERT INTO guestbook_message "
 					+ "(message, memberid) VALUES (?, ?)");
@@ -33,6 +32,7 @@ public class MessageDao {
 			JdbcUtil.close(pstmt);
 		}
 	}
+	
 	
 	public Message select(Connection conn, int messageId) throws SQLException {
 		PreparedStatement pstmt = null;

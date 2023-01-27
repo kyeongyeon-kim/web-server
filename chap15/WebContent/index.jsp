@@ -11,12 +11,12 @@
 	<nav>
 <!-- 		if else절처럼 사용이 가능한 choose문 -->
 		<c:choose>
-		<c:when test="${ not empty memberid }">
-			<a href="list.jsp">방명록</a>
+		<c:when test="${ not empty login }">
+			<a href="./guestbook/list">방명록</a>
 			<a href="logout.jsp">로그아웃</a>
 		</c:when>
 		<c:otherwise>
-			<a href="./insert/insertForm.jsp">회원가입</a>
+			<a href="insertForm.jsp">회원가입</a>
 			<a href="login.jsp">로그인</a>
 		</c:otherwise>
 		</c:choose>

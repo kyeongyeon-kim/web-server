@@ -17,5 +17,6 @@
 		<input type="password" name="password">
 		<input type="submit">
 	</form>
+	<a href="index.jsp">[Index]</a>
 </body>
 </html>

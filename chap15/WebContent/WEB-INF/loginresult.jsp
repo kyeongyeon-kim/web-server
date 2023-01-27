@@ -8,8 +8,8 @@
 <title>로그인 결과</title>
 </head>
 <body>
-	<c:if test="${ not empty memberid }">
-		<p>${ memberid }님 환영합니다. </p>
+	<c:if test="${ not empty login }">
+		<p>${ login }님 환영합니다. </p>
 		<a href="./">[인덱스로 돌아가기]</a>
 	</c:if>
 </body>

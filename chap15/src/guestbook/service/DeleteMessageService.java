@@ -22,7 +22,7 @@ public class DeleteMessageService {
 	
 	private DeleteMessageService() {}
 	
-	public void deleteMessage(int messageId, String memberId, String password) {
+	public void deleteMessage(int messageId, String memberid) {
 		Connection conn = null;
 		try {
 			conn = ConnectionProvider.getConnection();
@@ -33,9 +33,10 @@ public class DeleteMessageService {
 			if(message == null) {
 				throw new MessageNotFoundException("메시지 없음");
 			}
-			if (!matchPassword(conn, memberId, password)) {
-				throw new InvalidPasswordException("bad password");
+			if(!message.getMemberid().equals(memberid)) {
+				throw new ServiceException("본인 글만 삭제 가능합니다.");
 			}
+			
 			messageDao.delete(conn, messageId);
 			conn.commit();
 		} catch (SQLException ex) {
@@ -48,27 +49,5 @@ public class DeleteMessageService {
 			JdbcUtil.close(conn);
 		}
 		
-	}
-	
-	private boolean matchPassword(Connection conn, String memberId, String password) throws SQLException {
-		PreparedStatement pstmt = null;
-		String pwd = null;
-		try {
-			pstmt = conn.prepareStatement(
-					"SELECT `password` FROM `member` WHERE memberid = ?");
-			pstmt.setString(1, memberId);
-			try (ResultSet rs = pstmt.executeQuery()) {
-				if(rs.next()) {
-					pwd = rs.getString(1);
-				}
-			}
-			if (pwd.equals(password)) {
-				return true;
-			} else {
-				return false;
-			}
-		} finally {
-			JdbcUtil.close(pstmt);
-		}
 	}
 }
