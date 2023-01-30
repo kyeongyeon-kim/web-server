@@ -1,4 +1,4 @@
-package guestbook;
+package myfilter;
 
 import java.io.IOException;
 
@@ -8,35 +8,21 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-@WebFilter("/guestbook/*")
-public class LoginFilter extends HttpServlet implements Filter {
-	
-	private boolean logincheck(HttpSession session) {
-		if (session == null) {
-			return false;
-		}
-		
-		return session.getAttribute("login") != null;
-	}
-	
+@WebFilter("/**") // "/**" 모든 하위경로에 대한 맵핑 설정
+public class EncodingFilter implements Filter {
+
 	@Override
 	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
 			throws IOException, ServletException {
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse resp = (HttpServletResponse) response;
 		
-		HttpSession session = req.getSession(false);
-		if (!logincheck(session)) {
-//			resp.sendRedirect("req.getContextPath() "/login.jsp");
-			resp.sendRedirect("../login.jsp");
-			return;
-		}
+		req.setCharacterEncoding("UTF-8");
+		resp.setCharacterEncoding("UTF-8");
 		
-		chain.doFilter(request, response);
+		chain.doFilter(req, resp);
 	}
 }

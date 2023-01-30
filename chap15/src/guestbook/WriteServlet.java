@@ -20,7 +20,6 @@ public class WriteServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		HttpSession session = req.getSession(false);
-		req.setCharacterEncoding("utf-8");
 		Message message = new Message();
 		String m = req.getParameter("message");
 		message.setMessage(m);
