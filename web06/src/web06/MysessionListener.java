@@ -33,6 +33,4 @@ public class MysessionListener
 	public void attributeAdded(HttpSessionBindingEvent event) {
 		logger.info("세션 어트리뷰트 설정됨 : " + event.getName() + " : " + event.getValue());
 	}
-
-	
 }
