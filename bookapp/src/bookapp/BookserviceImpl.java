@@ -99,7 +99,9 @@ public class BookserviceImpl implements BookService {
 			conn = ConnectionProvider.getConnection();
 			conn.setAutoCommit(false);
 			Book book = dao.selectByNo(conn, no);
-			dao.delete(conn, no);
+			if (book != null) {
+				dao.delete(conn, no);
+			}
 			conn.commit();
 			
 			return book;
