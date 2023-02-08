@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Page Title</title>
+</head>
+<body>
+    <input id="input-1" onkeydown="listener(event)">    
+    <input id="input-2" onkeydown="listener(event)">    
+    <input id="input-3" onkeydown="listener(event)">    
+    <input id="input-4" onkeydown="listener(event)">    
+</body>
+<script>
+    function listener(e) {
+        console.log("글로벌this에 바인딩되어 호출 ", e.target === this);
+    }
+
+    function binding(e) {
+        console.log("각 요소에 바인딩되어 호출 ", e.target === this);
+    }
+
+    document.querySelectorAll("input").forEach((x) => {
+        x.addEventListener("keyup", binding)
+    })
+</script>
+</html>

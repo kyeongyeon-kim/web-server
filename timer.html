@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Page Title</title>
+</head>
+<body>
+    <span id="number">0</span>
+    <button id="start">start</button>
+    <button id="stop">stop</button>
+    <button id="reset">reset</button>
+</body>
+<script>
+    let number = document.getElementById("number");
+    let start = document.getElementById("start");
+    let stop = document.getElementById("stop");
+    let reset = document.getElementById("reset");
+    let count = 0;
+    let intervalNum;
+
+    start.addEventListener(("click"), function(e) {
+        if (!intervalNum) {
+            intervalNum = setInterval(() => {
+                count++;
+            number.innerText = count;
+        }, 1000);
+        }
+    })
+
+    stop.addEventListener(("click"), function(e) {
+        if (intervalNum) {
+            clearInterval(intervalNum);
+            intervalNum = 0;
+        }
+    })
+
+    reset.addEventListener(("click"), function(e) {
+        
+    })
+</script>
+</html>

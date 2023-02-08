@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title>Page Title</title>
+    <style>
+        .back-red {
+            background-color: red;
+        }
+
+        .front-white {
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <p id="myText">Text</p>
+    <button id="toRed">배경 빨갛게</button>
+    <button id="toWhite">글자 하얗게</button>
+</body>
+<script>
+    let myText = document.getElementById("myText");
+    let toRed = document.getElementById("toRed");
+    let toWhite = document.getElementById("toWhite");
+
+    toRed.addEventListener("click", (e) => {
+        myText.classList.toggle("back-red");
+    })
+    toWhite.addEventListener("click", (e) => {
+        myText.classList.toggle("front-white");
+    })
+</script>
+</html>

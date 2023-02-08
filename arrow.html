@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page Title</title>
+</head>
+<body>    
+</body>
+<script>
+   let arrowFunc = (x) => {
+    console.log(x);
+    console.log("파라미터 x를 출력하는 함수입니다.");
+   }
+
+   arrowFunc("전달값");
+   // arrow함수는 값이 있다면 기본적으로 값을 반환한다. (함수 바디가 중괄호에 포함되어있지 않을 때)
+   // 중괄호를 붙이게되면 return 을 명시해주어야함.
+   let sum = (a, b) => a + b;
+
+   let result = sum(100, 200);
+   console.log(result);
+</script>
+</html>

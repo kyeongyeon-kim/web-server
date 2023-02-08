@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title>Page Title</title>
+</head>
+
+<body>
+    <canvas id="canvas" width="640" height="480"></canvas>
+</body>
+<script>
+    let canvas = document.getElementById("canvas");
+    let context = canvas.getContext("2d");
+
+    function clear() {
+        context.fillStyle = "rgba(255, 255, 0, 0.5)";
+        context.fillRect(0, 0, 640, 480);
+    }
+    
+    let x = 0;
+    let y = 0;
+    setInterval(function() {
+        clear();
+        context.fillStyle = "rgba(255, 0, 0, 0.8)"
+        context.fillRect(x, y, 50, 50);
+
+        x += 5;
+
+        if (x >= 640) {
+            x = 0;
+        }
+    }, 100)
+</script>
+
+</html>

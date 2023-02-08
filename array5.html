@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Page Title</title>
+</head>
+<body>
+<script>
+    let arr = [1, 2, 3, 4, 5];
+
+    // let filter = arr.filter((x) => x % 2 == 0);
+    //  map : 기존의 값을 새로 만들어서 반환하는 메소드
+    //  sum : 값들의 최종값들을 구해주는 메소드
+    let sum = arr.filter((x) => x % 2 == 0)
+                .map((x) => x ** 2)
+                .reduce((a, b) => a + b);
+    
+    // console.log(filter);
+
+    // let map = filter.map((x) => x ** 2);
+
+    console.log(sum);
+    
+    let some = [1, true, 'zzz', 55.33, "ㅋㅋㅋ", {}];
+    
+    let typeStr = some.filter((x) => typeof x === "string");
+    console.log(typeStr);
+    
+</script>
+</body>
+</html>

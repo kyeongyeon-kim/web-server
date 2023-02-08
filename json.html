@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Page Title</title>
+</head>
+<body>
+<script>
+    let person = {
+        name: "길동",
+        age: 22,
+    }
+
+    let json = JSON.stringify(person);
+
+    console.log(json);
+    
+    let copy = JSON.parse(json);
+    
+    console.log(copy.name);
+    console.log(copy.age);
+    
+</script>    
+</body>
+</html>

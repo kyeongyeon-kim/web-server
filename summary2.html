@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page Title</title>
+</head>
+<body>    
+</body>
+<script>
+    // 파라미터에 명시되지 않은 값이 파라미터로 전달받은 모든 값은 arguments에 저장됨
+    function params() {
+        for (let i = 0; i< arguments.length; i++) {
+          console.log(arguments[i]);
+        }
+    }
+      
+    params(1, 3, "asdf", 33, 4);
+
+    // 파라미터에 기본값을 설정할 수 있다.
+    function defaultParam(a = "undefined시의 기본값") {
+        console.log(a);
+    }
+
+    defaultParam();
+    defaultParam("값이 전달되면?");
+    defaultParam(null);
+</script>
+</html>

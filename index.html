@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+</head>
+
+<body>
+</body>
+<script>
+    let age = window.prompt("생년월일 혹은 나이를 입력하세요.");
+    let length = age.length;
+    if (age.length == 2) {
+        if (age >= 20) {
+            window.alert("성인입니다.");
+        } else {
+            window.alert("성인이아닙니다.");
+        }
+    } else if (age.length == 6) {
+        if (age / 41231 >= 1) {
+            window.alert("성인입니다.");
+        } else {
+            window.alert("성인이아닙니다.");
+        }
+    } else if (age.length == 8) {
+        if (20041231 / age >= 1) {
+            window.alert("성인입니다.");
+        } else {
+            window.alert("성인이아닙니다.");
+        }
+    } else {
+        window.alert("유효한 포맷이 아닙니다.");
+    }
+</script>
+
+</html>

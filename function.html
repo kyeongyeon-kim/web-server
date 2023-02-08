@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page Title</title>
+</head>
+<body>
+    
+</body>
+<script>
+    sayHello("adfd", 132, 342424, 5252, true);
+    // 나머지 숫자 하나는 undefined가 된다
+    printSum(100);
+    // 앞 두 숫자만 계산이되고 나머지숫자는 전달만된다.
+    printSum(100, 200, 300, 400, 500);
+
+    // 리턴타입 명시 필요 X
+    function sayHello() { // hoising
+        console.log("Hello");
+    }
+    function printSum(a, b) {
+        console.log(a + b);
+    }
+
+    function pow(num, p) {
+        return num ** p;
+    }
+
+    let result = pow(2, 3);
+    console.log(result);
+
+    // sayHello();
+
+    // printSum(100, 200);
+    // printSum("asdf", "qwer");
+</script>
+</html>

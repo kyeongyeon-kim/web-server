@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page Title</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // js에서는 if문에 다양한 자료형이 들어갈 수 있다.
+    // 참조가 있는 객체가 있다면 참이다.
+    // {} == 참
+    // [] == 참
+    // number type (0 이나 NaN 제외)
+    // string type의 값 ("" 제외) 문자열 "0" 가능
+    if ({}) {
+        console.log("참일때");
+    } else {
+        console.log("거짓일때");
+    }
+    // false
+    // null
+    // undefined
+    // 0 (number type)
+    // NaM
+    // ""
+
+    // ------------------------
+
+    for (let i = 0; i < 10; i++) {
+        console.log(i);
+    }
+
+    let num = 3;
+    while (num) {
+        console.log(num);
+        num--;
+    }
+
+    let value = 55;
+    switch(value) {
+        case 55:
+            console.log("55일 때");
+            break;
+            case "Hello":
+            console.log("Hello 일 때");
+        default:
+            console.log("일치 값 없을 때");
+    }
+
+</script>
+</html>

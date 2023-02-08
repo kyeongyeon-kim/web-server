@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+</head>
+
+<body>
+</body>
+<script>
+    //var someValue = "전역";
+    window.someValue = "전역";
+    let obj = {
+        someValue: "객체의 프로퍼티"
+    }
+
+    let normalFunc = function () {
+        console.log("해당 Context의 값 출력합니다." + this.someValue);
+    }
+
+    let arrowFunc = () => {
+        console.log("해당 Context의 값 출력합니다." + this.someValue); //lexical scope. no binding
+    }
+
+    // normalFunc();
+    // arrowFunc();
+    
+    // 자신이 속해있는 Context에 따라 this 값이 바뀜 (바인딩)
+    obj.myFunc = normalFunc;
+    // arrow함수는 바인딩할 수 없음
+    obj.myFunc = arrowFunc;
+    obj.myFunc();
+</script>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page Title</title>
+</head>
+<body>
+<script>
+    class MyObj {
+        #myValue;
+
+        constructor(myValue) {
+            this.#myValue = myValue;
+        }
+
+        get publicProp() {
+            return this.#myValue;
+        }
+
+        set mySetter(newValue) {
+            if (typeof newValue == "string") {
+                this.#myValue = newValue;
+            }
+        }
+    }
+
+    let m1 = new MyObj("생성자에서 초기화한 값");
+    console.log(m1.myValue);
+    console.log(m1.publicProp);
+
+    m1.mySetter = 100;
+    console.log(m1.publicProp);
+
+    m1.mySetter = "세터로 문자열 값";
+    console.log(m1.publicProp);
+    
+</script>    
+</body>
+</html>

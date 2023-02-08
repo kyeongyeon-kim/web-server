@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page Title</title>
+</head>
+<body>
+<script>
+    //객체 초기화 {}; == java에서의 new 어쩌고 저쩌고랑 같음
+    let myObj = {};
+    myObj.name = "둘리";
+    myObj.age = "20";
+
+    myObj.name = "도우너";
+    myObj.age = "22";
+
+    console.log(myObj);
+    console.log(myObj.name);
+    console.log(myObj.age);
+    console.log(myObj.not);
+    
+    // 추가적인 프로퍼티 접근 방법
+    // 문자열 값이 대괄호안에 있기에 동적인 문자열 사용이 가능하다.
+    let yourObj = new Object();
+    // 스퀘어 브라켓
+    yourObj["n" + "ame"] = "마이콜";
+    yourObj["age"] = 33;
+    console.log(yourObj);
+
+</script>    
+</body>
+</html>

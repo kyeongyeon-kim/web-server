@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Page Title</title>
+</head>
+<body>
+    <div id="container"></div>    
+    <button id="btnCreate">텍스트 만들기</button>
+</body>
+<script>
+    let btn = document.getElementById("btnCreate");
+    let container = document.querySelector("#container");
+    let num = 1;
+
+    btn.addEventListener("click", function (e) {
+        let myNewP = document.createElement("p");
+        myNewP.innerText = "Hello" + num;
+        num++;
+
+        // append 맨 끝 삽입
+        // prepend 맨 앞 삽입
+        // before 요소 이전 삽입
+        // after 요소 다음 삽입
+        // remove 해당 요소 삭제
+        // container.append(myNewP);
+        container.prepend(myNewP);
+    });
+</script>
+</html>

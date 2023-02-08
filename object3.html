@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page Title</title>
+</head>
+<body>
+<script>
+    let myObj = {
+        name: "길동",
+        age: 55,
+
+        // 함수에서 정의되는 this는 함수가 포함되어 있는 컨텍스트를 참조한다.
+        sayHello: function () {
+            console.log("안녕하세요.");
+            console.log(this.name);
+            console.log(this.age);
+        }
+    };
+
+    myObj.sayHello();
+</script>    
+</body>
+</html>

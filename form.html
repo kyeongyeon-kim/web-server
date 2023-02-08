@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title>Page Title</title>
+    <style>
+        input:invalid {
+            border-color: red;
+            background-color: yellow;
+        }
+
+        .error-message {
+            display: none;
+        }
+
+        /*+ == next*/
+        input:invalid + .error-message {
+            display: inline;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="form-person" onsubmit="return validateForm(event)">
+        <input type="text" name="name" id="name" />
+        <input type="number" name="age" id="age" oninput="validateAge()" />
+        <span class="error-message">18세 이상이여 합니다.</span>
+        <input type="submit">
+    </form>
+</body>
+<script>
+    function validateAge(e) {
+        let numberElem = document.getElementById("age");
+        let age = numberElem.value;
+
+        if (age < 18) {
+            numberElem.setCustomValidity("18세 이상이여야 합니다.");
+        } else {
+            numberElem.setCustomValidity("");
+        }
+    }
+
+    function validateForm(e) {
+        let form = document.getElementById("form-person");
+
+        let result = form.checkValidity();
+        console.log(result);
+        if (result) {
+            return true;
+        }
+        return false;
+    }
+</script>
+
+</html>

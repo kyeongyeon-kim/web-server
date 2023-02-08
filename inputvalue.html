@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Page Title</title>
+</head>
+<body>
+    <input id="myText1" value="zxcv"/>
+    <input id="myText2" value="zxcv"/>
+</body>
+<script>
+    let myText1 = document.getElementById("myText1");
+    let myText2 = document.getElementById("myText2");
+
+    myText1.addEventListener("change", function(e) {
+        console.log(myText1.value);
+    })
+
+    myText2.addEventListener("keydown", function(e) {
+        console.log(e.target.value);
+    })
+</script>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page Title</title>
+</head>
+<body>
+<script>
+    class Person {
+        // private == #
+        #name;
+        #age;
+        // 생성자
+        constructor(name, age) {
+            this.#name = name;
+            this.#age = age;
+        }
+
+        get name() {
+            return this.#name;
+        }
+
+        get age() {
+            return this.#age;
+        }
+
+        set name(name) {
+            this.#name = name;
+        }
+
+        set age(age) {
+            this.#age = age;
+        }
+
+        toString() {
+            // return "사람이름 : " + this.#name + ", 사람나이 : " + this.#age;
+            // 백팁
+            return `사람이름: ${this.#name}, 사람나이: ${this.#age}`;
+        }
+
+        valueOf() {
+            return this.#age;
+        }
+
+        printAll() {
+            console.log(this.#name, this.#age);
+        }
+    }
+
+    let p1 = new Person("사람이름", 44);
+    let p2 = new Person("사람2", 56);
+
+    p1.printAll();
+    p2.printAll();
+
+    // 대입연산을 하게 되면 자동적으로 setter가 호출된다.
+    p1.name = "새이름";
+    console.log(p1.name);
+    console.log(p1.age);
+    console.log(p1.toString());
+    console.log(p1 + "문자열 연산 시에는 toString이 호출됩니다.");
+    console.log(p1.valueOf());
+    console.log(p1 + 100);
+    
+</script>    
+</body>
+</html>

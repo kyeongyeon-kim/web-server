@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Page Title</title>
+</head>
+<body>
+    
+</body>
+<script>
+    
+    // var변수는 window컨텍스트에 만들어진다. globalThis == window == var
+    window.name = "윈도우";
+
+    let obj = {
+        name: "객체"
+    }
+
+    let myfunc = function someFunction() {
+        console.log(this.name);
+    }
+    
+    function hoisted() {
+        console.log(this.name);
+        
+    }
+
+    obj.fun1 = myfunc;
+    obj.fun2 = hoisted;
+
+    obj.fun1();
+    obj.fun2();
+
+    myfunc();
+
+    // 오브젝트 형태의 객체가 바인딩된 함수를 쓰고싶다.
+    hoisted();
+    let binding = hoisted.bind(obj);
+    binding();
+
+    // 호출할건데 바인딩해서 바로 호출해주라
+    hoisted.apply(obj);
+    hoisted.call(obj);
+
+    let arrow = () => console.log(this.name);
+    arrow();
+
+    obj.fun3 = arrow;
+    obj.fun3();
+
+    let another = {
+        name: "다른객체",
+        funAnother: arrow
+    }
+
+    another.funAnother();
+
+    class MyClass {
+        name = "클래스안 name";
+        classMethod = () => console.log(this.name)
+    }
+    // 자바처럼 this쓰고싶으면 애로우펑션 쓰면 됨
+    let obj3 = new MyClass();
+    obj3.classMethod();
+
+</script>
+</html>

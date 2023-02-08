@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page Title</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // js에서 함수는 객체이다. 이 경우 호이스팅은 불가능
+    let myFunc = function(x) {
+        console.log(x);
+    }
+    let yourFunc = myFunc;
+    myFunc("Hello");
+    yourFunc("World");
+</script>
+</html>

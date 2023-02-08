@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page Title</title>
+</head>
+<body>
+    <button id="my-btn">눌러주세요</button>
+</body>
+<script>
+    // 윈도우 객체는 생략가능
+    let elem = document.getElementById("my-btn");
+    elem.addEventListener("click", function(e) {
+        alert("잘 눌렀음");
+    });
+</script>
+</html>
